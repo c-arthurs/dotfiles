@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "using Rclone to backup the Desktop and Script directories to kclonedrive"
+rclone copy /Users/callum/callum/ kclone:/osxbackups/callum/ -P
+
