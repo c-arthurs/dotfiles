@@ -1,0 +1,5 @@
+ln -s /Users/callum/callum/dotfiles/.bashrc ~/.bashrc
+ln -s /Users/callum/callum/dotfiles/.bin ~/.bin
+ln -s /Users/callum/callum/dotfiles/.ssh ~/.ssh
+ln -s /Users/callum/callum/dotfiles/.vimrc ~/.vimrc
+ln -s /Users/callum/callum/dotfiles/.zhsrc ~/.zhsrc
