@@ -2,6 +2,6 @@ ln -s /Users/callum/callum/dotfiles/.bashrc ~/.bashrc
 ln -s /Users/callum/callum/dotfiles/.bin ~/.bin
 ln -s /Users/callum/callum/dotfiles/.ssh ~/.ssh
 ln -s /Users/callum/callum/dotfiles/.vimrc ~/.vimrc
-ln -s /Users/callum/callum/dotfiles/.zhsrc ~/.zhsrc
+ln -s /Users/callum/callum/dotfiles/.zshrc ~/.zshrc
 ln -s /Users/callum/callum/dotfiles/.tmux ~/.tmux
 ln -s /Users/callum/callum/dotfiles/.tmux.conf ~/.tmux.conf
