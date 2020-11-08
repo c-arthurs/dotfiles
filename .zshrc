@@ -1,5 +1,6 @@
 path+=$HOME/.bin
 
+source ~/.bashrc
 
 
 # >>> conda initialize >>>

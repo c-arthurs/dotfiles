@@ -1,5 +1,32 @@
 #!/usr/bin/env bash
 
-echo "using Rclone to backup the Desktop and Script directories to kclonedrive"
-rclone copy /Users/callum/callum/ kclone:/osxbackups/callum/ -P
+while getopts ":hrl" opt; do
+  case ${opt} in
+    h )
+      echo "Usage:"
+      echo "    pip -h                      Display this help message."
+      echo "    pip install                 Install a Python package."
+      exit 0
+      ;;
+    r )
+	echo "remote backup"
+	echo "using Rclone to backup the Desktop and Script directories to kclonedrive"
+	rclone copy /Users/callum/callum/ kclone:/osxbackups/callum/ -P
+	;;
+    l )
+	echo "local backups"
+	if [ -d "/Volumes/PATRIOT" ] 
+	then
+	    echo "Backing up to PATRIOT"
+	    echo "callum scripts directory"
+	    rsync -aHE ~/callum /Volumes/PATRIOT/ 
+	fi
 
+	;;
+    \? )
+      echo "Invalid Option: -$OPTARG" 1>&2
+      exit 1
+      ;;
+  esac
+done
+shift $((OPTIND -1))
