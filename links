@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 
-ln -s ~/callum/dotfiles/.bashrc ~/.bashrc
-ln -s ~/callum/dotfiles/.bin ~/.bin
-ln -s ~/callum/dotfiles/.ssh ~/.ssh
-ln -s ~/callum/dotfiles/.vimrc ~/.vimrc
-ln -s ~/callum/dotfiles/.zshrc ~/.zshrc
-ln -s ~/callum/dotfiles/.tmux ~/.tmux
-ln -s ~/callum/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/callum/dotfiles/.bashrc ~/.bashrc
+ln -sf ~/callum/dotfiles/.bin ~/.bin
+ln -sf ~/callum/dotfiles/.ssh ~/.ssh
+ln -sf ~/callum/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/callum/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/callum/dotfiles/.tmux ~/.tmux
+ln -sf ~/callum/dotfiles/.tmux.conf ~/.tmux.conf
