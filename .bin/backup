@@ -19,9 +19,14 @@ while getopts ":hrl" opt; do
 	then
 	    echo "Backing up to PATRIOT"
 	    echo "callum scripts directory"
-	    rsync -aHE ~/callum /Volumes/PATRIOT/ 
-	fi
+	    rsync  -auHE  --exclude={'*/.DS_STORE','*/.git', '*/.idea', '*/.ipynb_checkpoints', '*/__pycache__'} ~/callum/ /Volumes/PATRIOT/ 
+	    echo "backing up Thesis"
+	    rsync  -auHE --ignore-existing --exclude={'*/.DS_STORE','*/.git', '*/.idea', '*/.ipynb_checkpoints', '*/__pycache__'} "/Users/callum/OneDrive - King's College London/PhD/THESIS_LATEX" /Volumes/PATRIOT/THESIS/ 
+	    rsync  -auHE --ignore-existing --exclude={'*/.DS_STORE','*/.git', '*/.idea', '*/.ipynb_checkpoints', '*/__pycache__'} "/Users/callum/OneDrive - King's College London/PhD/THESIS_WORD" /Volumes/PATRIOT/THESIS/ 
 
+
+	    
+	fi
 	;;
     \? )
       echo "Invalid Option: -$OPTARG" 1>&2

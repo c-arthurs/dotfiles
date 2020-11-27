@@ -2,8 +2,18 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+   platform='freebsd'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='osx'
+fi
 
-if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+
+if [[ $platform == 'linux' ]]; then
 	# If not running interactively, don't do anything
 	case $- in
 	    *i*) ;;
