@@ -150,4 +150,4 @@ alias tmux="TERM=screen-256color-bce tmux" # added by callum to sort tmux
 PATH=$PATH:$HOME/.bin
 alias cdh="cd /hdd1/Callum/"
 alias open='xdg-open'
-conda deactivate && conda activate core
+alias core="conda deactivate && conda activate core"

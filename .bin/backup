@@ -21,9 +21,11 @@ while getopts ":hrl" opt; do
 	    echo "callum scripts directory"
 	    rsync  -auHE  --exclude={'*/.DS_STORE','*/.git', '*/.idea', '*/.ipynb_checkpoints', '*/__pycache__'} ~/callum/ /Volumes/PATRIOT/ 
 	    echo "backing up Thesis"
-	    rsync  -auHE --ignore-existing --exclude={'*/.DS_STORE','*/.git', '*/.idea', '*/.ipynb_checkpoints', '*/__pycache__'} "/Users/callum/OneDrive - King's College London/PhD/THESIS_LATEX" /Volumes/PATRIOT/THESIS/ 
-	    rsync  -auHE --ignore-existing --exclude={'*/.DS_STORE','*/.git', '*/.idea', '*/.ipynb_checkpoints', '*/__pycache__'} "/Users/callum/OneDrive - King's College London/PhD/THESIS_WORD" /Volumes/PATRIOT/THESIS/ 
+	    # rsync  -auHE --ignore-existing --exclude={'*/.DS_STORE','*/.git', '*/.idea', '*/.ipynb_checkpoints', '*/__pycache__'} "/Users/callum/OneDrive - King's College London/PhD/THESIS_LATEX" /Volumes/PATRIOT/THESIS/ 
+	    # rsync  -auHE --ignore-existing --exclude={'*/.DS_STORE','*/.git', '*/.idea', '*/.ipynb_checkpoints', '*/__pycache__'} "/Users/callum/OneDrive - King's College London/PhD/THESIS_WORD" /Volumes/PATRIOT/THESIS/ 
 
+	    rclone sync kclone:/PHD/THESIS_WORD /Volumes/PATRIOT/THESIS/THESIS_WORD -P
+	    rclone sync kclone:/PHD/THESIS_LATEX /Volumes/PATRIOT/THESIS/THESIS_LATEX -P
 
 	    
 	fi
