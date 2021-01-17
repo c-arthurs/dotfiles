@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
+set -e
 
+[ -d $1 ]
 
 echo "Creating a directory for $1 and inserting the usual scripting stuff"
 mkdir $1
 cd $1
-mkdir scripts docs data
+mkdir docs data
 cp /Users/callum/callum/kidney_biopsy/.gitignore .
 git init
 echo "# This is the $1 documentation" > README.md
