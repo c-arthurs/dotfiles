@@ -151,3 +151,5 @@ PATH=$PATH:$HOME/.bin
 alias cdh="cd /hdd1/Callum/"
 alias open='xdg-open'
 alias core="conda deactivate && conda activate core"
+alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
+alias smi="watch nvidia-smi"
