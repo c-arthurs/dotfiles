@@ -140,16 +140,29 @@ if [[ $platform == 'linux' ]]; then
 	# <<< conda initialize <<<
 fi
 
+if [[ $HOSTNAME  == "dudley.doc.ic.ac.uk" ]];
+then 
+	alias core="conda deactivate && conda activate pytorchenv"
+	alias backup="rclone sync -P --skip-links /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
+	alias cdh="cd /data1/callum/"
+fi
+
+if [[ $HOSTNAME  == "lynch..." ]];
+then 
+	alias core="conda deactivate && conda activate core"
+	alias backup="back"
+	alias cdh="cd /hdd1/Callum/"
+fi
+
 # callum added
 # some more ls aliases
 alias ll='ls -alF'
-alias la='ls -A'
+alias la='ls -Al'
 alias l='ls -CF'
+alias lsd="ls -d */"
 
 alias tmux="TERM=screen-256color-bce tmux" # added by callum to sort tmux
 PATH=$PATH:$HOME/.bin
-alias cdh="cd /hdd1/Callum/"
 alias open='xdg-open'
-alias core="conda deactivate && conda activate core"
 alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 alias smi="watch nvidia-smi"
