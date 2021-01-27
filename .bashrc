@@ -145,24 +145,29 @@ then
 	alias core="conda deactivate && conda activate pytorchenv"
 	alias backup="rclone sync -P --skip-links /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
 	alias cdh="cd /data1/callum/"
-fi
-
-if [[ $HOSTNAME  == "lynch..." ]];
+	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
+elif [[ $HOSTNAME  == "lynch..." ]];
 then 
 	alias core="conda deactivate && conda activate core"
 	alias backup="back"
 	alias cdh="cd /hdd1/Callum/"
+	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
+else
+	alias core="conda deactivate && conda activate core"
+	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus" # remote jupyter server
+	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kains" # remote jupyter server
+
 fi
 
 # callum added
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -Al'
+alias ll='ls -alFh'
+alias la='ls -Alh'
 alias l='ls -CF'
-alias lsd="ls -d */"
-
+alias lsd="ls -dh */"
+alias gh='history|grep' # get history
+alias count='find . -type f | wc -l' # count all files in current dir
 alias tmux="TERM=screen-256color-bce tmux" # added by callum to sort tmux
 PATH=$PATH:$HOME/.bin
 alias open='xdg-open'
-alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 alias smi="watch nvidia-smi"
