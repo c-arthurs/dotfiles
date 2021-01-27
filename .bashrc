@@ -147,9 +147,23 @@ then
 	alias backup="rclone sync -P --skip-links /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
 	alias cdh="cd /data1/callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
-elif [[ $HOSTNAME  == "lynch..." ]];
+elif [[ $HOSTNAME  == "lynch-server1" ]];
 then 
-		
+	
+	# >>> conda initialize >>>
+	# !! Contents within this block are managed by 'conda init' !!
+	__conda_setup="$('/home/callum/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+	if [ $? -eq 0 ]; then
+	    eval "$__conda_setup"
+	else
+	    if [ -f "/home/callum/miniconda3/etc/profile.d/conda.sh" ]; then
+		. "/home/callum/miniconda3/etc/profile.d/conda.sh"
+	    else
+		export PATH="/home/callum/miniconda3/bin:$PATH"
+	    fi
+	fi
+	unset __conda_setup
+	# <<< conda initialize <<<
 
 	alias core="conda deactivate && conda activate core"
 	alias backup="back"
@@ -161,7 +175,6 @@ else
 	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kains" # remote jupyter server
 
 fi
-
 # callum added
 # some more ls aliases
 alias ll='ls -alFh'
