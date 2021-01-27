@@ -130,14 +130,14 @@ if [[ $HOSTNAME  == "dudley.doc.ic.ac.uk" ]];
 then 
 	# >>> conda initialize >>>
 	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$('/home/ca/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+	__conda_setup="$('/data1/callum/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 	if [ $? -eq 0 ]; then
 	    eval "$__conda_setup"
 	else
-	    if [ -f "/home/ca/miniconda3/etc/profile.d/conda.sh" ]; then
-		. "/home/ca/miniconda3/etc/profile.d/conda.sh"
+	    if [ -f "/data1/callum/miniconda3/etc/profile.d/conda.sh" ]; then
+		. "/data1/callum/miniconda3/etc/profile.d/conda.sh"
 	    else
-		export PATH="/home/ca/miniconda3/bin:$PATH"
+		export PATH="/data1/callum/miniconda3/bin:$PATH"
 	    fi
 	fi
 	unset __conda_setup
@@ -147,6 +147,7 @@ then
 	alias backup="rclone sync -P --skip-links /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
 	alias cdh="cd /data1/callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
+
 elif [[ $HOSTNAME  == "lynch-server1" ]];
 then 
 	
