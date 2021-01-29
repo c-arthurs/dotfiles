@@ -170,10 +170,13 @@ then
 	alias backup="back"
 	alias cdh="cd /hdd1/Callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
-else
+elif [[ $platform == 'osx' ]];
+then
+	echo osx
 	alias core="conda deactivate && conda activate core"
 	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus" # remote jupyter server
 	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kains" # remote jupyter server
+	alias notebook="jupyter notebook" # Jupyter 
 
 fi
 # callum added
