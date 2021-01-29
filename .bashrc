@@ -177,6 +177,7 @@ then
 	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus" # remote jupyter server
 	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kains" # remote jupyter server
 	alias notebook="jupyter notebook" # Jupyter 
+	alias killweb="sudo vim /etc/hosts && sudo dscacheutil -flushcache"
 
 fi
 # callum added
