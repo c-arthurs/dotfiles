@@ -4,6 +4,7 @@ set number
 set spell 
 set spelllang=en
 set relativenumber
+set hlsearch
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
@@ -23,5 +24,6 @@ if system('uname -s') == "Darwin\n"
 else
   set clipboard=unnamedplus "Linux
 endif
+
 
 
