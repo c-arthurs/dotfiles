@@ -5,6 +5,8 @@ set spell
 set spelllang=en
 set relativenumber
 set hlsearch
+" clear the last hlsearch with the spacebar 
+map <Space> :noh<cr>
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
