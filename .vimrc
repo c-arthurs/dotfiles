@@ -7,6 +7,8 @@ set relativenumber
 set hlsearch
 " clear the last hlsearch with the spacebar 
 map <Space> :noh<cr>
+" makes sure the tab line is at top of page with filename
+set showtabline=2
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
