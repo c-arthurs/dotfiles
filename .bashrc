@@ -191,3 +191,4 @@ alias tmux="TERM=screen-256color-bce tmux" # added by callum to sort tmux
 PATH=$PATH:$HOME/.bin
 alias open='xdg-open'
 alias smi="watch nvidia-smi"
+echo "HOW WE SPEND OUR DAYS IS HOW WE SPEND OUR LIVES"
