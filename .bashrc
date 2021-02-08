@@ -144,7 +144,7 @@ then
 	# <<< conda initialize <<<
 
 	alias core="conda deactivate && conda activate pytorchenv"
-	alias backup="rclone sync -P --skip-links /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
+	alias backup="rclone sync -P --skip-links --exclude miniconda3/ /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
 	alias cdh="cd /data1/callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 
@@ -188,3 +188,4 @@ alias tmux="TERM=screen-256color-bce tmux" # added by callum to sort tmux
 PATH=$PATH:$HOME/.bin
 alias open='xdg-open'
 alias smi="watch nvidia-smi"
+alias removedirs="rm -Rf -- */"
