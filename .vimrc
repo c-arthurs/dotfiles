@@ -4,6 +4,11 @@ set number
 set spell 
 set spelllang=en
 set relativenumber
+set hlsearch
+" clear the last hlsearch with the spacebar 
+map <Space> :noh<cr>
+" makes sure the tab line is at top of page with filename
+set showtabline=2
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
@@ -23,5 +28,8 @@ if system('uname -s') == "Darwin\n"
 else
   set clipboard=unnamedplus "Linux
 endif
+
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
