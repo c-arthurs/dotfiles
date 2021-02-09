@@ -149,6 +149,17 @@ then
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 	alias notify="echo \"script finished\" | mail -s \"script finished on DUDLEY\" -- C.ARTHURS@IMPERIAL.AC.UK"
 
+	wait_for_pid () {
+		check=$(ps --no-headers -p "$1" | wc -l)
+		while [[ $check -ne 0 ]]
+		do
+			sleep 6
+			check=$(ps --no-headers -p "$1" | wc -l)
+		done
+		echo "previous finished, running script"
+		notify
+	}
+
 elif [[ $HOSTNAME  == "lynch-server1" ]];
 then 
 	
@@ -194,21 +205,6 @@ alias open='xdg-open'
 alias smi="watch nvidia-smi"
 alias removedirs="rm -Rf -- */"
 echo "HOW WE SPEND OUR DAYS IS HOW WE SPEND OUR LIVES"
-
-
-# functions
-
-wait_for_pid () {
-	local check=$(ps --no-headers -p "$1" | wc -l)
-	while [[ $check -ne 0 ]]
-	do
-		sleep 60
-	done
-	echo "previous finished, running script"
-	notify
-}
-
-
 
 
 
