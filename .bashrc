@@ -147,7 +147,7 @@ then
 	alias backup="rclone sync -P --skip-links --exclude miniconda3/ /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
 	alias cdh="cd /data1/callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
-	alias notify="echo \"script finished\" | mail -s \"script finished on DUDLEY\" -- C.ARTHURS@IMPERIAL.AC.UK"
+	alias notify="echo \"Action Finished\" | mail -s \"script finished on DUDLEY\" -- C.ARTHURS@IMPERIAL.AC.UK"
 
 	wait_for_pid () {
 		check=$(ps --no-headers -p "$1" | wc -l)
