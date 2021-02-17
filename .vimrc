@@ -9,6 +9,8 @@ set hlsearch
 map <Space> :noh<cr>
 " makes sure the tab line is at top of page with filename
 set showtabline=2
+" spelling limited so doesnt take up whole screen - call using z= 
+set spellsuggest+=10
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
