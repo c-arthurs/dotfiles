@@ -45,7 +45,6 @@ endif
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 if hostname  != "dudley.doc.ic.ac.uk"
-	echo "hi"
 	" ------------ coc presets ------------
 	" TextEdit might fail if hidden is not set.
 	set hidden
