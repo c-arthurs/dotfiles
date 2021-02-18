@@ -19,7 +19,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 
 let hostname = substitute(system('hostname'), '\n', '', '')
-if hostname  != "dudley.doc.ic.ac.uk"
+if hostname  != "dudley.doc.ic.ac.uk" || "lynch-server1"
 	" for autocompletion 
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
@@ -44,7 +44,7 @@ endif
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-if hostname  != "dudley.doc.ic.ac.uk"
+if hostname  != "dudley.doc.ic.ac.uk" || "lynch-server1"
 	" ------------ coc presets ------------
 	" TextEdit might fail if hidden is not set.
 	set hidden
