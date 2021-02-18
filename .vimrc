@@ -24,6 +24,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " to install plugs then run :PlugInstall
 " to install coc plugins rin :CocInstall 
 " install python for coc :CocInstall coc-pyright
+" install bash for coc :CocInstall coc-sh
+" coc might also need node.js . install with curl -sL install-node.now.sh/lts | bash
 call plug#end()
 
 colorscheme gruvbox
