@@ -27,6 +27,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " install python for coc :CocInstall coc-pyright
 " install bash for coc :CocInstall coc-sh
 " coc might also need node.js . install with curl -sL install-node.now.sh/lts | bash
+
+" for the file system
+Plug 'preservim/nerdtree'
+
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -178,3 +184,18 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" ------------ nerdtree settings -------------------
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+let NERDTreeShowHidden=1
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
