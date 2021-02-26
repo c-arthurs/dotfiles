@@ -5,6 +5,7 @@ set spell
 set spelllang=en
 set relativenumber
 set hlsearch
+set backspace=indent,eol,start
 " clear the last hlsearch with the spacebar 
 map <Space> :noh<cr>
 " makes sure the tab line is at top of page with filename
