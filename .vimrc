@@ -12,6 +12,8 @@ map <Space> :noh<cr>
 set showtabline=2
 " spelling limited so doesnt take up whole screen - call using z= 
 set spellsuggest+=10
+command Bang :call append(0, "#!/usr/bin/env bash")
+
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
