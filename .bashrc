@@ -214,4 +214,14 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 # echo "╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗    ██║  ██║██║  ██║██║  ██║██████╔╝███████╗██║  ██║";
 # echo " ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝";
 # echo "                                                                                       ";
-
+# Taskwarrior
+alias t='task'
+alias tsh='tasksh'
+alias tt='task next limit:10'
+alias ta='task add'
+alias tpr='task projects'
+alias tp_='task _projects'
+function tp() { task "proj:$1"; } 
+alias tdd='task +OVERDUE list' # Show all tasks that are overdue. This is sometimes more urgent than the urgency.
+alias tan='task add +next'
+alias tac='task add project:Pro.Consulting'
