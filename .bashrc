@@ -224,6 +224,7 @@ alias tp_='task _projects'
 function tp() { task "proj:$1"; } 
 alias tdd='task +OVERDUE list' # Show all tasks that are overdue. This is sometimes more urgent than the urgency.
 alias tan='task add +next'
-alias tat='task add project:Thesis'
+alias tak='task add project:KCL'
+alias tat='task add project:KCL.Thesis'
 alias tah='task add project:Hammersmith'
 alias tag='task add project:GOSH'
