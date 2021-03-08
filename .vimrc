@@ -5,6 +5,7 @@ set spell
 set spelllang=en
 set relativenumber
 set hlsearch
+set encoding=UTF-8
 set backspace=indent,eol,start
 " clear the last hlsearch with the spacebar 
 map <Space> :noh<cr>
@@ -33,6 +34,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " for the file system
 Plug 'preservim/nerdtree'
+" for the git nerdtree plugin
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin'
+" for the icons next to file types
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -203,3 +209,20 @@ autocmd VimEnter * NERDTree " | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
+" ------------ nerdtree git plugin settings --------
+
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
+let g:NERDTreeGitStatusConcealBrackets = 1 " default: 0
+" this is a thing 
