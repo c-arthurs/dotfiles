@@ -160,7 +160,7 @@ export PATH="/data1/callum/miniconda3/bin:$PATH"  # commented out by conda initi
 		notify
 	}
 
-elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" ]];
+elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" || "fleet.doc.ic.ac.uk" ]];
 then 
 	# >>> conda initialize >>>
 	# !! Contents within this block are managed by 'conda init' !!
