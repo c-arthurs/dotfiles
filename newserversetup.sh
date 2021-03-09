@@ -37,6 +37,7 @@ wget https://nodejs.org/dist/v15.11.0/node-v15.11.0.tar.gz
 tar -xvf node-v15.11.0.tar.gz
 cd node-v15.11.0
 ./configure --prefix=$homepath/nodejs
+make && make install
 echo "export PATH=$homepath/nodejs/bin:\$PATH" >> ~/.bash_profile
 # # add vim link 
 ln -sf $homepath/dotfiles/.vimrc ~/.vimrc
@@ -44,4 +45,5 @@ source ~/.bash_profile
 source ~/.bashrc
 # install vim plugs
 vim  +VimEnter +PlugInstall +qall
+cd $homepath
 echo all installed - hopefully
