@@ -41,6 +41,7 @@ echo "export PATH=$homepath/nodejs/bin:\$PATH" >> ~/.bash_profile
 # # add vim link 
 ln -sf $homepath/dotfiles/.vimrc ~/.vimrc
 source ~/.bash_profile 
+source ~/.bashrc
 # # install vim plugs
 vim  +VimEnter +PlugInstall +qall
 echo all installed - hopefully
