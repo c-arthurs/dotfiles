@@ -135,9 +135,9 @@ then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/data1/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-		. "/data1/callum/miniconda3/etc/profile.d/conda.sh"
+. "/data1/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
 	    else
-		export PATH="/data1/callum/miniconda3/bin:$PATH"
+export PATH="/data1/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
 	    fi
 	fi
 	unset __conda_setup
@@ -162,6 +162,20 @@ then
 
 elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" ]];
 then 
+	# >>> conda initialize >>>
+	# !! Contents within this block are managed by 'conda init' !!
+	__conda_setup="$('/data/callum/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+	if [ $? -eq 0 ]; then
+	    eval "$__conda_setup"
+	else
+	    if [ -f "/data/callum/miniconda3/etc/profile.d/conda.sh" ]; then
+. "/data/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+	    else
+export PATH="/data/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
+	    fi
+	fi
+	unset __conda_setup
+	# <<< conda initialize <<<
 	alias core="conda deactivate && conda activate pytorchenv"
 	# alias backup="rclone sync -P --skip-links --exclude .git/ --exclude miniconda3/ --delete-excluded /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
 	alias cdh="cd /data/callum/"
@@ -187,9 +201,9 @@ then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/home/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-		. "/home/callum/miniconda3/etc/profile.d/conda.sh"
+. "/home/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
 	    else
-		export PATH="/home/callum/miniconda3/bin:$PATH"
+export PATH="/home/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
 	    fi
 	fi
 	unset __conda_setup
