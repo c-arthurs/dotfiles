@@ -35,7 +35,7 @@ echo "installing nodejs"
 cd $homepath
 wget https://nodejs.org/dist/v15.11.0/node-v15.11.0.tar.gz
 tar -xvf node-v15.11.0.tar.gz
-cd node-v15.11.0.tar.gz
+cd node-v15.11.0
 ./configure --prefix=$homepath/nodejs
 echo "export PATH=$homepath/nodejs/bin:\$PATH" >> ~/.bash_profile
 # # add vim link 
