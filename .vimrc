@@ -31,7 +31,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " install python for coc :CocInstall coc-pyright
 " install bash for coc :CocInstall coc-sh
 " coc might also need node.js . install with curl -sL install-node.now.sh/lts | bash
-
+" vim +"CocInstall coc-pyright" +"CocInstall coc-sh"
 " for the file system
 Plug 'preservim/nerdtree'
 " for the git nerdtree plugin
