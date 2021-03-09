@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # choose home dir
 read -p "Install location: " homepath
@@ -32,9 +33,9 @@ echo "export PATH=$homepath/vim_real/bin:\$PATH" >> ~/.bash_profile
 # # install newer nodejs
 echo "installing nodejs" 
 cd $homepath
-wget ihttps://nodejs.org/dist/v15.11.0/node-v14.16.0-linux-x64.tar.gz
-tar -xvf node-v14.16.0-linux-x64.tar.gz 
-cd node-v15.11.0
+wget https://nodejs.org/dist/v15.11.0/node-v15.11.0.tar.gz
+tar -xvf node-v15.11.0.tar.gz
+cd node-v14.16.0
 ./configure --prefix=$homepath/nodejs
 echo "export PATH=$homepath/nodejs/bin:\$PATH" >> ~/.bash_profile
 # # add vim link 
