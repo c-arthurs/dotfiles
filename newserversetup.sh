@@ -17,9 +17,9 @@ ln -sf $homepath/dotfiles/.tmux.conf ~/.tmux.conf
 # download miniconda 
 cd $homepath
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh -b -f -p $homepath/Miniconda3
+bash Miniconda3-latest-Linux-x86_64.sh -b -f -p $homepath/miniconda3
 # add miniconda path to .bash_profile
-echo "PATH=$homepath/Miniconda3/bin:\$PATH" >> ~/.bash_profile
+echo "PATH=$homepath/miniconda3/bin:\$PATH" >> ~/.bash_profile
 # download vim 
 cd $homepath
 git clone https://github.com/vim/vim.git
