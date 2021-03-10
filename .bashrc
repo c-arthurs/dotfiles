@@ -129,15 +129,14 @@ fi
 if [[ $HOSTNAME  == "dudley.doc.ic.ac.uk" ]];
 then 
 	# >>> conda initialize >>>
-	# !! Contents within this block are managed by 'conda init' !!
 	__conda_setup="$('/data1/callum/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 	if [ $? -eq 0 ]; then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/data1/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/data1/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+. "/data1/callum/miniconda3/etc/profile.d/conda.sh" 
 	    else
-export PATH="/data1/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
+export PATH="/data1/callum/miniconda3/bin:$PATH" 
 	    fi
 	fi
 	unset __conda_setup
@@ -160,18 +159,17 @@ export PATH="/data1/callum/miniconda3/bin:$PATH"  # commented out by conda initi
 		notify
 	}
 
-elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" || "fleet.doc.ic.ac.uk" ]];
+elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" ]] || [[ $HOSTNAME  == "fleet.doc.ic.ac.uk" ]];
 then 
 	# >>> conda initialize >>>
-	# !! Contents within this block are managed by 'conda init' !!
 	__conda_setup="$('/data/callum/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 	if [ $? -eq 0 ]; then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/data/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/data/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+. "/data/callum/miniconda3/etc/profile.d/conda.sh" 
 	    else
-export PATH="/data/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
+export PATH="/data/callum/miniconda3/bin:$PATH" 
 	    fi
 	fi
 	unset __conda_setup
@@ -201,9 +199,9 @@ then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/home/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/home/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+. "/home/callum/miniconda3/etc/profile.d/conda.sh" 
 	    else
-export PATH="/home/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
+export PATH="/home/callum/miniconda3/bin:$PATH" 
 	    fi
 	fi
 	unset __conda_setup
@@ -213,16 +211,18 @@ export PATH="/home/callum/miniconda3/bin:$PATH"  # commented out by conda initia
 	alias backup="back"
 	alias cdh="cd /hdd1/Callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
-elif [[ $platform == 'osx' ]];
+fi
+if [[ $platform == 'osx' ]];
 then
+	alias cdh="cd ~/callum/"
 	alias core="conda deactivate && conda activate core"
 	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus" # remote jupyter server
 	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kains" # remote jupyter server
 	alias notebook="jupyter notebook" # Jupyter 
-	alias killweb="sudo vim /etc/hosts && sudo dscacheutil -flushcache"
-	alias cdh="cd /Users/callum/callum"
-
+	alias killweb="echo \"DONT FAIL\" && sleep 10 && killall Safari && sudo vim /etc/hosts && sudo dscacheutil -flushcache"
+	alias killweb="/usr/bin/open -a \"/Applications/Safari.app\" 'https://www.kickstarter.com/projects/1767122922/the-spirited-man-series'"
 fi
+echo $platform
 # callum added
 # some more ls aliases
 alias ll='ls -alFh'
