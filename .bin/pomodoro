@@ -37,7 +37,7 @@ while true; do
 	  (( work=work+1 ))
 	done
 
-	echo Your $i\'st 50min session is done - enjoy the break 
+	echo Session number $i is complete - enjoy the break 
 	say "Session $i is done"
 	(( i=i+1 ))
 
