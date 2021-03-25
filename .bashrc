@@ -219,7 +219,7 @@ then
 	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus" # remote jupyter server
 	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kains" # remote jupyter server
 	alias notebook="jupyter notebook" # Jupyter 
-	alias killweb="echo \"DONT FAIL\" && sleep 10 && killall Safari && sudo vim /etc/hosts && sudo dscacheutil -flushcache"
+	alias killweb="echo \"FINISH THESIS FIRST, THEN REST\" && afplay \"goggins_work.mp3\" && killall Safari && sudo vim /etc/hosts && sudo dscacheutil -flushcache"
 	# alias killweb="/usr/bin/open -a \"/Applications/Safari.app\" 'https://www.kickstarter.com/projects/1767122922/the-spirited-man-series'"
 fi
 # echo $platform
