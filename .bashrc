@@ -217,11 +217,11 @@ then
 	alias cdh="cd ~/callum/"
 	alias core="conda deactivate && conda activate core"
 	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus" # remote jupyter server
-	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kains" # remote jupyter server
+	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kainsa" # remote jupyter server
 	alias notebook="jupyter notebook" # Jupyter 
-	alias motivate="echo \"FINISH THESIS - make them proud\" && afplay \"goggins_work.mp3\"" 
+	alias motivate="echo \"FINISH THESIS - make them proud\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\"" 
 
-	alias killweb="echo \"FINISH THESIS FIRST, THEN REST\" && afplay \"goggins_work.mp3\" && killall Safari && sudo vim /etc/hosts && sudo dscacheutil -flushcache"
+	alias killweb="echo \"FINISH THESIS FIRST, THEN REST\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\" && killall Safari && sudo vim /etc/hosts && sudo dscacheutil -flushcache"
 	# alias killweb="/usr/bin/open -a \"/Applications/Safari.app\" 'https://www.kickstarter.com/projects/1767122922/the-spirited-man-series'"
 fi
 # echo $platform
