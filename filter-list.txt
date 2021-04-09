@@ -1,0 +1,22 @@
+- /_old/
+- /source material/
+- /INTRODUCTION/
+- /CHAPTER_equine/
+- *.tar.xz
+- *.tar.gz
+- *Miniconda3*
+- *miniconda3*
+- /vim/
+- /vim_real/
+- /node-*/
+- /nodejs/
+- /DATA/
+- /DATA_Digi_Path/
++ *.docx
++ *.pdf
++ *.png
++ *.jpg
++ *.jpeg
++ *.tex
++ *.bib
+- ** 
