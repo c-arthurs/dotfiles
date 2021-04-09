@@ -176,6 +176,7 @@ export PATH="/data/callum/miniconda3/bin:$PATH"
 	# <<< conda initialize <<<
 	alias core="conda deactivate && conda activate pytorchenv"
 	# alias backup="rclone sync -P --skip-links --exclude .git/ --exclude miniconda3/ --delete-excluded /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
+	alias backup="rclone sync -P --skip-links --exclude .git/ --exclude miniconda3/ --delete-excluded /data/callum/DATA box:/DUDLEY_SERVER_BACKUP/DATA"
 	alias cdh="cd /data/callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 	alias notify="echo \"Action Finished\" | mail -s \"script finished on ARMADA\" -- C.ARTHURS@IMPERIAL.AC.UK"
