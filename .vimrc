@@ -19,6 +19,10 @@ command Bang :call append(0, "#!/usr/bin/env bash")
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
+" for auto making documentation strings for python functions
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+" this works by hitting leader \ then d when hovering over a function name
+
 " Declare the list of plugins.
 Plug 'morhetz/gruvbox'
 
