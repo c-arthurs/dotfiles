@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#
+# this script is for waiting for a server to come back online
+# call it followed by the server name
+# wait for the server to start 
+
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied - you must add an address to the server like - "
+    echo "    wait_for_server.sh 8.8.8.8"
+    exit 1 
+fi
+
+((count = 10000000))                            # Maximum number to try.
+while [[ $count -ne 0 ]] ; do
+    ping -c 1 $1                     # Try once.
+    rc=$? # last shell returned value
+    if [[ $rc -eq 0 ]] ; then
+        ((count = 1))                      # If okay, flag to exit loop.
+else
+	sleep 100
+    fi
+    ((count = count - 1))                  # So we don't go forever.
+done
+
+if [[ $rc -eq 0 ]] ; then                  # Make final determination.
+    echo `say The server is back up.`
+    echo "the server is back up"
+else
+    echo `say Timeout.`
+    echo "Timeout"
+fi
