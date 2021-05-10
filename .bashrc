@@ -135,7 +135,7 @@ then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/data1/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/data1/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+. "/data1/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize  # commented out by conda initialize
 	    else
 export PATH="/data1/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
 	    fi
@@ -169,7 +169,7 @@ then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/data/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/data/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+. "/data/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize  # commented out by conda initialize
 	    else
 export PATH="/data/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
 	    fi
@@ -201,7 +201,7 @@ then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/home/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/home/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+. "/home/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize  # commented out by conda initialize
 	    else
 export PATH="/home/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
 	    fi
