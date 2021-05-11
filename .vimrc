@@ -14,7 +14,7 @@ set showtabline=2
 " spelling limited so doesnt take up whole screen - call using z= 
 set spellsuggest+=10
 command Bang :call append(0, "#!/usr/bin/env bash")
-
+command Main :call append(line('$'), "if __name__ == \"__main__\":")
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
