@@ -15,6 +15,7 @@ set showtabline=2
 set spellsuggest+=10
 command Bang :call append(0, "#!/usr/bin/env bash")
 command Main :call append(line('$'), "if __name__ == \"__main__\":")
+command Marker :call append(line('.')-1, "### >>>>>>>>>>> ERROR HERE <<<<<<<<<<<< ###")
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
