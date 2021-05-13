@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+# for exporting tiles automatically using the cnncore tma_lib library that can be installed as below
+# usage:
+#     wsi_tissue_export "/path/to/file/dir/with/ndpi" --imagesize 1000 --imageoverlap 20 --annotation_segment --prep_ml_dataset
+
+
 from cnncore import deep_prep # pip install --upgrade git+ssh://git@github.com/c-arthurs/tma_lib.git#egg=tma_lib
 import sys 
 import argparse
