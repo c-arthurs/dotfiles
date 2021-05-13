@@ -1,4 +1,4 @@
-from cnncore import deep_prep
+from cnncore import deep_prep # pip install --upgrade git+ssh://git@github.com/c-arthurs/tma_lib.git#egg=tma_lib
 import sys 
 import argparse
 
