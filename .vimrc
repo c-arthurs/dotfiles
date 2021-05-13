@@ -14,10 +14,14 @@ set showtabline=2
 " spelling limited so doesnt take up whole screen - call using z= 
 set spellsuggest+=10
 command Bang :call append(0, "#!/usr/bin/env bash")
-
+command Main :call append(line('$'), "if __name__ == \"__main__\":")
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
+
+" for auto making documentation strings for python functions
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+" this works by hitting leader \ then d when hovering over a function name
 
 " Declare the list of plugins.
 Plug 'morhetz/gruvbox'
@@ -31,7 +35,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " install python for coc :CocInstall coc-pyright
 " install bash for coc :CocInstall coc-sh
 " coc might also need node.js . install with curl -sL install-node.now.sh/lts | bash
-
+" vim +"CocInstall coc-pyright" +"CocInstall coc-sh"
 " for the file system
 Plug 'preservim/nerdtree'
 " for the git nerdtree plugin

@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+# Callum Arthurs 
+# this script is for running a simple pomadoro timer. 
+# use like - pomodoro.sh 50 15 
+# there are two args - first is work time, second is rest time
+# if left blank - i.e. pomodoro.sh then the preset is 50 work 15 break
+# work hard... 
+
+clear
+
+if ! [[ -z "$1" ]]; then
+	worktime=$1
+else
+	worktime=50
+fi
+
+if ! [[ -z "$2" ]]; then
+	breaktime=$2
+else
+	breaktime=15
+fi
+
+((worktime=worktime*60))
+((breaktime=breaktime*60))
+
+i=1
+while true; do
+	work=0
+	until [ $work -gt $worktime ] # 3000 is 50 mins
+	do
+	  per=$(echo "scale=2; $work/$worktime*100" | bc -l)
+	  tput setaf 2 #tupt makes terminal output green
+	  echo -n "    $work/$worktime - keep working - ${per%.*}%" 
+	  echo -n -e "\e[0K\r"
+	  sleep 1
+	  (( work=work+1 ))
+	done
+
+	echo Session number $i is complete - enjoy the break 
+	say "Session $i is done"
+	(( i=i+1 ))
+
+	play=0
+	until [ $play -gt $breaktime ] # 900 is 15 min
+	do
+	  tput setaf 4 #tupt makes terminal output green
+	  per=$(echo "scale=2; $play/$breaktime*100" | bc -l)
+	  echo -n "    $play/$breaktime - break - ${per%.*}%"
+	  echo -n -e "\e[0K\r"
+	  sleep 1
+	  (( play=play+1 ))
+	done
+	say "Break is over. It is time to work on session $i"
+done
+

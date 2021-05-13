@@ -1,0 +1,12 @@
+- /_old/
+- /source material/
+- /INTRODUCTION/
+- /CHAPTER_equine/
++ *.docx
++ *.pdf
++ *.png
++ *.jpg
++ *.jpeg
++ *.tex
++ *.bib
+- ** 

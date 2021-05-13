@@ -129,15 +129,14 @@ fi
 if [[ $HOSTNAME  == "dudley.doc.ic.ac.uk" ]];
 then 
 	# >>> conda initialize >>>
-	# !! Contents within this block are managed by 'conda init' !!
 	__conda_setup="$('/data1/callum/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 	if [ $? -eq 0 ]; then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/data1/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/data1/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize  # commented out by conda initialize
+. "/data1/callum/miniconda3/etc/profile.d/conda.sh" 
 	    else
-export PATH="/data1/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
+export PATH="/data1/callum/miniconda3/bin:$PATH" 
 	    fi
 	fi
 	unset __conda_setup
@@ -160,27 +159,29 @@ export PATH="/data1/callum/miniconda3/bin:$PATH"  # commented out by conda initi
 		notify
 	}
 
-elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" || "fleet.doc.ic.ac.uk" ]];
+elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" ]] || [[ $HOSTNAME  == "fleet.doc.ic.ac.uk" ]];
 then 
 	# >>> conda initialize >>>
-	# !! Contents within this block are managed by 'conda init' !!
 	__conda_setup="$('/data/callum/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 	if [ $? -eq 0 ]; then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/data/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/data/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize  # commented out by conda initialize
+. "/data/callum/miniconda3/etc/profile.d/conda.sh" 
 	    else
-export PATH="/data/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
+export PATH="/data/callum/miniconda3/bin:$PATH" 
 	    fi
 	fi
 	unset __conda_setup
 	# <<< conda initialize <<<
 	alias core="conda deactivate && conda activate pytorchenv"
-	# alias backup="rclone sync -P --skip-links --exclude .git/ --exclude miniconda3/ --delete-excluded /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
+	# alias backup="rclone sync -P --skip-links --exclude .git/ --exclude miniconda3/ --delete-excluded /data/callum/DATA box:/DUDLEY_SERVER_BACKUP/DATA"
+	alias backupdata="rclone sync -P --skip-links --filter-from filter-list.txt /data/callum/DATA_Digi_Path box:/SERVER_BACKUPS/DATA_Digi_Path"
+	alias backuphome="rclone sync -P --skip-links --filter-from filter-list.txt /data/callum/ box:/SERVER_BACKUPS/SCRIPTS/"
 	alias cdh="cd /data/callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 	alias notify="echo \"Action Finished\" | mail -s \"script finished on ARMADA\" -- C.ARTHURS@IMPERIAL.AC.UK"
+	alias backup="backupdata && backuphome && notify"
 
 	wait_for_pid () {
 		check=$(ps --no-headers -p "$1" | wc -l)
@@ -201,9 +202,9 @@ then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/home/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/home/callum/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize  # commented out by conda initialize
+. "/home/callum/miniconda3/etc/profile.d/conda.sh" 
 	    else
-export PATH="/home/callum/miniconda3/bin:$PATH"  # commented out by conda initialize
+export PATH="/home/callum/miniconda3/bin:$PATH" 
 	    fi
 	fi
 	unset __conda_setup
@@ -213,16 +214,20 @@ export PATH="/home/callum/miniconda3/bin:$PATH"  # commented out by conda initia
 	alias backup="back"
 	alias cdh="cd /hdd1/Callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
-elif [[ $platform == 'osx' ]];
+fi
+if [[ $platform == 'osx' ]];
 then
+	alias cdh="cd ~/callum/"
 	alias core="conda deactivate && conda activate core"
 	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus" # remote jupyter server
-	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kains" # remote jupyter server
+	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kainsa" # remote jupyter server
 	alias notebook="jupyter notebook" # Jupyter 
-	alias killweb="sudo vim /etc/hosts && sudo dscacheutil -flushcache"
-	alias cdh="cd /Users/callum/callum"
+	alias motivate="echo \"FINISH THESIS - make them proud\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\"" 
 
+	alias killweb="echo \"FINISH THESIS FIRST, THEN REST\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\" && killall Safari && sudo vim /etc/hosts && sudo dscacheutil -flushcache"
+	# alias killweb="/usr/bin/open -a \"/Applications/Safari.app\" 'https://www.kickstarter.com/projects/1767122922/the-spirited-man-series'"
 fi
+# echo $platform
 # callum added
 # some more ls aliases
 alias ll='ls -alFh'
@@ -238,6 +243,7 @@ alias smi="watch nvidia-smi"
 alias removedirs="rm -Rf -- */"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias tensorboard="tensorboard --logdir=runs --max_reload_threads 4"
+alias thumbnails="mkdir thumbnails; sips -Z 300 *.* --out thumbnails"
 
 # echo "██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗    ██╗  ██╗ █████╗ ██████╗ ██████╗ ███████╗██████╗ ";
 # echo "██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝    ██║  ██║██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗";

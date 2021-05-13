@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# todo - add a current date for the rclone backup
+# - add a file of exclusions for rclone to avoid .git files and the like
+
 while getopts ":hrl" opt; do
   case ${opt} in
     h )
@@ -14,13 +17,16 @@ while getopts ":hrl" opt; do
 	rclone copy /Users/callum/callum/ kclone:/osxbackups/callum/ -P
 	;;
     l )
+	date=$(date '+%d-%m-%Y')
 	echo "local backups"
 	if [ -d "/Volumes/PATRIOT" ] 
 	then
 	    echo "Backing up to PATRIOT"
 	    echo "backing up Thesis"
-	    rclone sync kclone:/PHD/THESIS_WORD /Volumes/PATRIOT/THESIS/THESIS_WORD -P
-	    rclone sync kclone:/PHD/THESIS_LATEX /Volumes/PATRIOT/THESIS/THESIS_LATEX -P
+	    mkdir -p /Volumes/PATRIOT/THESIS/$date/THESIS_WORD 
+	    mkdir -p /Volumes/PATRIOT/THESIS/$date/THESIS_LATEX
+	    rclone sync kclone:/PHD/THESIS_WORD /Volumes/PATRIOT/THESIS/$date/THESIS_WORD -P --filter-from filter-list.txt
+	    rclone sync kclone:/PHD/THESIS_LATEX /Volumes/PATRIOT/THESIS/$date/THESIS_LATEX -P --filter-from filter-list.txt
 	    echo "backing up endnote"
 	    rsync  -auHEP   --exclude={"*/.DS_STORE","*/.git","*/.idea","*/.ipynb_checkpoints","*/__pycache__"} /Users/callum/Documents/ /Volumes/PATRIOT/ 
 	    echo "callum scripts directory"
