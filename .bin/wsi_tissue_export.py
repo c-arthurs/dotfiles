@@ -24,6 +24,9 @@ if __name__ == "__main__":
     parser.add_argument('--prep_ml_dataset', action='store_true',
                                 help='whether to save results to a single directory')
 
+    parser.add_argument('--cover_percentage', type=int, default=0.9,
+                                help='the percentage of each tile that should be covered in tissue for the segmentation')
+
     args = parser.parse_args()
     choicenames = ["path", "imagesize", "imageoverlap", "annotation_segment", "prep_ml_dataset"]
     results = [args.path, args.imagesize, args.imageoverlap, args.annotation_segment, args.prep_ml_dataset]
@@ -31,4 +34,4 @@ if __name__ == "__main__":
 
     deep_prep.main(str(args.path), annotation_segment=bool(args.annotation_segment), 
             prep_ml_dataset=bool(args.prep_ml_dataset), imagesize=int(args.imagesize), 
-            imageoverlap=int(args.imageoverlap))
+            imageoverlap=int(args.imageoverlap), cover_percentage=float(args.cover_percentage))

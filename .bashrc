@@ -220,7 +220,8 @@ then
 	alias cdh="cd ~/callum/"
 	alias core="conda deactivate && conda activate core"
 	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus" # remote jupyter server
-	alias kainsbook="ssh -N -f -L localhost:8889:localhost:8889 kainsa" # remote jupyter server
+	alias kainzbookf="ssh -N -f -L localhost:8889:localhost:8889 kainzf" # remote jupyter server
+	alias kainzbooka="ssh -N -f -L localhost:8889:localhost:8889 kainza" # remote jupyter server
 	alias notebook="jupyter notebook" # Jupyter 
 	alias motivate="echo \"FINISH THESIS - make them proud\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\"" 
 
