@@ -24,7 +24,7 @@ if __name__ == "__main__":
     parser.add_argument('--prep_ml_dataset', action='store_true',
                                 help='whether to save results to a single directory')
 
-    parser.add_argument('--cover_percentage', type=int, default=0.9,
+    parser.add_argument('--cover_percentage', type=float, default=0.9,
                                 help='the percentage of each tile that should be covered in tissue for the segmentation')
 
     args = parser.parse_args()
