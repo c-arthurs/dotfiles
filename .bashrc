@@ -211,7 +211,7 @@ export PATH="/home/callum/miniconda3/bin:$PATH"
 	# <<< conda initialize <<<
 
 	alias core="conda deactivate && conda activate core"
-	alias backup="back"
+	alias backup="rclone copy /hdd1/Callum/asini_deep/ProstSeg kclonedrive:/Lynch_server_backup/ProstSeg -P --filter-from /hdd1/Callum/dotfiles/filter-list.txt "
 	alias cdh="cd /hdd1/Callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 fi
