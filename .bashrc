@@ -245,6 +245,7 @@ alias removedirs="rm -Rf -- */"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias tensorboard="tensorboard --logdir=runs --max_reload_threads 4"
 alias thumbnails="mkdir thumbnails; sips -Z 300 *.* --out thumbnails"
+alias deact="conda deactivate"
 
 # echo "██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗    ██╗  ██╗ █████╗ ██████╗ ██████╗ ███████╗██████╗ ";
 # echo "██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝    ██║  ██║██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗";
