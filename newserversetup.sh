@@ -8,15 +8,15 @@ set -e
 
 # choose home dir - this is usually the datadrive - such as /data/callum
 read -p "Install base location: " homepath
-# check user is happy
-while true; do
-    read -p "Do you wish to install vim, nodejs, and symlinks to $homepath? (y, n) " yn
-    case $yn in
-        [Yy]* ) make install; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+# # check user is happy
+# while true; do
+#     read -p "Do you wish to install vim, nodejs, and symlinks to $homepath? (y, n) " yn
+#     case $yn in
+#         [Yy]* ) echo "yes";; #make install; break;;
+#         [Nn]* ) exit;;
+#         * ) echo "Please answer yes or no.";;
+#     esac
+# done
 echo installing to $homepath
 # add first links - tmux and bashrc
 cd $homepath
@@ -42,9 +42,9 @@ echo "export PATH=$homepath/vim_real/bin:\$PATH" >> ~/.bash_profile
 # install newer nodejs
 echo "installing nodejs" 
 cd $homepath
-wget https://nodejs.org/dist/v15.11.0/node-v15.11.0.tar.gz
-tar -xvf node-v15.11.0.tar.gz
-cd node-v15.11.0
+wget https://nodejs.org/dist/v16.3.0/node-v16.3.0.tar.gz # https://nodejs.org/dist/v15.11.0/node-v15.11.0.tar.gz
+tar -xvf node-v16.3.0.tar.gz
+cd node-v16.3.0
 ./configure --prefix=$homepath/nodejs
 make && make install
 echo "export PATH=$homepath/nodejs/bin:\$PATH" >> ~/.bash_profile
