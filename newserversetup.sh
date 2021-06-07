@@ -68,17 +68,21 @@ cd "rclone-*-linux-amd64"
 mkdir -p ~/sbin
 cp rclone ~/sbin/
 
-
-# tidy up should go here 
-cd $homepath
-echo all installed - hopefully. you may need to add a few lines to the bashrc to point to the conda init and restart the shell
-
 # cleanup 
 
 cd $homepath
 rm -rf ./node ./vim 
 find  . -maxdepth 1 -name "*.sh" -delete -o -name "*.gz" -delete
 
+# install conda envs
+cd miniconda3/bin
+./conda env create -f ./pytorchenv.yml
+./conda env create -f ./tf-gpu.yml
+# ./conda init bash
+
+cd $homepath
+echo all installed - hopefully. you may need to add a few lines to the bashrc to point to the conda init and restart the shell
+
+
 # TODO:
-# can also add rclone install and openslide install to this
-# add a cleanup step 
+# can also add openslide install to this
