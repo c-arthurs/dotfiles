@@ -205,5 +205,4 @@ dependencies:
     - times==0.7
     - tqdm==4.60.0
     - warn==0.1.0
-    - wsi-toolbox==0.2
 prefix: /data/callum/miniconda3/envs/tf-gpu

@@ -133,7 +133,6 @@ dependencies:
     - testpath==0.4.4
     - text-unidecode==1.3
     - tifffile==2020.12.8
-    - tma-lib==0.2
     - tornado==6.1
     - tqdm==4.54.1
     - traitlets==5.0.5
@@ -142,6 +141,5 @@ dependencies:
     - wcwidth==0.2.5
     - webencodings==0.5.1
     - widgetsnbextension==3.5.1
-    - wsi-toolbox==0.2
     - zipp==3.4.0
 prefix: /data/callum/miniconda3/envs/pytorchenv
