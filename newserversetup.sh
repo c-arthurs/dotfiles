@@ -36,17 +36,19 @@ echo "PATH=$homepath/miniconda3/bin:\$PATH" >> ~/.bash_profile
 cd $homepath
 git clone https://github.com/vim/vim.git
 cd vim/src
-./configure --prefix=$homepath/vim_real --with-features=huge 
+./configure --prefix=$homepath/vim_latest --with-features=huge 
 # https://superuser.com/questions/162560/how-to-install-vim-on-linux-when-i-dont-have-root-permissions
 make && make install
 # add new vim path to .bash_profile 
-echo "export PATH=$homepath/vim_real/bin:\$PATH" >> ~/.bash_profile
+echo "export PATH=$homepath/vim_latest/bin:\$PATH" >> ~/.bash_profile
 # install newer nodejs
 echo "installing nodejs" 
 cd $homepath
-wget https://nodejs.org/dist/v16.3.0/node-v16.3.0.tar.gz # https://nodejs.org/dist/v15.11.0/node-v15.11.0.tar.gz
-tar -xvf node-v16.3.0.tar.gz
-cd node-v16.3.0
+git clone "git@github.com:nodejs/node.git"
+cd node
+# wget https://nodejs.org/dist/v16.3.0/node-v16.3.0.tar.gz # https://nodejs.org/dist/v15.11.0/node-v15.11.0.tar.gz
+# tar -xvf node-v16.3.0.tar.gz
+# cd node-v16.3.0
 ./configure --prefix=$homepath/nodejs
 make && make install
 echo "export PATH=$homepath/nodejs/bin:\$PATH" >> ~/.bash_profile
@@ -58,9 +60,24 @@ source ~/.bashrc
 vim  +VimEnter +PlugInstall +qall
 # install vim coc plugins 
 vim +"CocInstall coc-pyright" +"CocInstall coc-sh"
+
+# install rclone 
+curl -O "http://downloads.rclone.org/rclone-current-linux-amd64.zip"
+unzip "rclone-current-linux-amd64.zip"
+cd "rclone-*-linux-amd64"
+mkdir -p ~/sbin
+cp rclone ~/sbin/
+
+
 # tidy up should go here 
 cd $homepath
 echo all installed - hopefully. you may need to add a few lines to the bashrc to point to the conda init and restart the shell
+
+# cleanup 
+
+cd $homepath
+rm -rf ./node ./vim 
+find  . -maxdepth 1 -name "*.sh" -delete -o -name "*.gz" -delete
 
 # TODO:
 # can also add rclone install and openslide install to this
