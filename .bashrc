@@ -122,58 +122,21 @@ if [[ $platform == 'linux' ]]; then
 	    . /etc/bash_completion
 	  fi
 	fi
-
-
 fi
 
 if [[ $HOSTNAME  == "dudley.doc.ic.ac.uk" ]];
 then 
-	# >>> conda initialize >>>
-	__conda_setup="$('/data1/callum/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-	if [ $? -eq 0 ]; then
-	    eval "$__conda_setup"
-	else
-	    if [ -f "/data1/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/data1/callum/miniconda3/etc/profile.d/conda.sh" 
-	    else
-export PATH="/data1/callum/miniconda3/bin:$PATH" 
-	    fi
-	fi
-	unset __conda_setup
-	# <<< conda initialize <<<
-
+	. /data/callum/CACONFIG/miniconda3/etc/profile.d/conda.sh
 	alias core="conda deactivate && conda activate pytorchenv"
 	alias backup="rclone sync -P --skip-links --exclude .git/ --exclude miniconda3/ --delete-excluded /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
 	alias cdh="cd /data1/callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 	alias notify="echo \"Action Finished\" | mail -s \"script finished on DUDLEY\" -- C.ARTHURS@IMPERIAL.AC.UK"
 
-	wait_for_pid () {
-		check=$(ps --no-headers -p "$1" | wc -l)
-		while [[ $check -ne 0 ]]
-		do
-			sleep 6
-			check=$(ps --no-headers -p "$1" | wc -l)
-		done
-		echo "previous finished, running script"
-		notify
-	}
 
 elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" ]] || [[ $HOSTNAME  == "fleet.doc.ic.ac.uk" ]];
 then 
-	# >>> conda initialize >>>
-	__conda_setup="$('/data/callum/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-	if [ $? -eq 0 ]; then
-	    eval "$__conda_setup"
-	else
-	    if [ -f "/data/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/data/callum/miniconda3/etc/profile.d/conda.sh" 
-	    else
-export PATH="/data/callum/miniconda3/bin:$PATH" 
-	    fi
-	fi
-	unset __conda_setup
-	# <<< conda initialize <<<
+	. /data/callum/CACONFIG/miniconda3/etc/profile.d/conda.sh
 	alias core="conda deactivate && conda activate pytorchenv"
 	# alias backup="rclone sync -P --skip-links --exclude .git/ --exclude miniconda3/ --delete-excluded /data/callum/DATA box:/DUDLEY_SERVER_BACKUP/DATA"
 	alias backupdata="rclone sync -P --skip-links --filter-from filter-list.txt /data/callum/DATA_Digi_Path box:/SERVER_BACKUPS/DATA_Digi_Path"
@@ -183,33 +146,8 @@ export PATH="/data/callum/miniconda3/bin:$PATH"
 	alias notify="echo \"Action Finished\" | mail -s \"script finished on ARMADA\" -- C.ARTHURS@IMPERIAL.AC.UK"
 	alias backup="backupdata && backuphome && notify"
 
-	wait_for_pid () {
-		check=$(ps --no-headers -p "$1" | wc -l)
-		while [[ $check -ne 0 ]]
-		do
-			sleep 6
-			check=$(ps --no-headers -p "$1" | wc -l)
-		done
-		echo "previous finished, running script"
-		notify
-	}
 elif [[ $HOSTNAME  == "lynch-server1" ]];
 then 
-	# >>> conda initialize >>>
-	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$('/home/callum/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-	if [ $? -eq 0 ]; then
-	    eval "$__conda_setup"
-	else
-	    if [ -f "/home/callum/miniconda3/etc/profile.d/conda.sh" ]; then
-. "/home/callum/miniconda3/etc/profile.d/conda.sh" 
-	    else
-export PATH="/home/callum/miniconda3/bin:$PATH" 
-	    fi
-	fi
-	unset __conda_setup
-	# <<< conda initialize <<<
-
 	alias core="conda deactivate && conda activate core"
 	alias backup="rclone copy /hdd1/Callum/asini_deep/ProstSeg kclonedrive:/Lynch_server_backup/ProstSeg -P --filter-from /hdd1/Callum/dotfiles/filter-list.txt "
 	alias cdh="cd /hdd1/Callum/"
@@ -223,14 +161,11 @@ then
 	alias kainzbookf="ssh -N -f -L localhost:8889:localhost:8889 kainzf" # remote jupyter server
 	alias kainzbooka="ssh -N -f -L localhost:8889:localhost:8889 kainza" # remote jupyter server
 	alias notebook="jupyter notebook" # Jupyter 
-	alias motivate="echo \"FINISH THESIS - make them proud\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\"" 
+	alias motivate="echo \"FINISH THESIS - dont be lazy\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\"" 
 
 	alias killweb="echo \"FINISH THESIS FIRST, THEN REST\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\" && killall Safari && sudo vim /etc/hosts && sudo dscacheutil -flushcache"
-	# alias killweb="/usr/bin/open -a \"/Applications/Safari.app\" 'https://www.kickstarter.com/projects/1767122922/the-spirited-man-series'"
 fi
-# echo $platform
-# callum added
-# some more ls aliases
+
 alias ll='ls -alFh'
 alias la='ls -Alh'
 alias l='ls -CF'
@@ -238,7 +173,6 @@ alias lsd="ls -dh */"
 alias gh='history|grep' # get history
 alias count='find . -type f | wc -l' # count all files in current dir
 alias tmux="TERM=screen-256color-bce tmux" # added by callum to sort tmux
-PATH=$PATH:$HOME/.bin
 alias open='xdg-open'
 alias smi="watch nvidia-smi"
 alias removedirs="rm -Rf -- */"
@@ -254,6 +188,7 @@ alias deact="conda deactivate"
 # echo "╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗    ██║  ██║██║  ██║██║  ██║██████╔╝███████╗██║  ██║";
 # echo " ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝";
 # echo "                                                                                       ";
+
 # Taskwarrior
 alias t='task'
 alias tsh='tasksh'
@@ -262,9 +197,23 @@ alias ta='task add'
 alias tpr='task projects'
 alias tp_='task _projects'
 function tp() { task "proj:$1"; } 
-alias tdd='task +OVERDUE list' # Show all tasks that are overdue. This is sometimes more urgent than the urgency.
+alias tdd='task +OVERDUE list' # Show all tasks that are overdue.
 alias tan='task add +next'
 alias tak='task add project:KCL'
 alias tat='task add project:KCL.Thesis'
 alias tah='task add project:Hammersmith'
 alias tag='task add project:GOSH'
+
+wait_for_pid () {
+	check=$(ps --no-headers -p "$1" | wc -l)
+	while [[ $check -ne 0 ]]
+	do
+		sleep 6
+		check=$(ps --no-headers -p "$1" | wc -l)
+	done
+	echo "previous finished, running script"
+	notify
+}
+
+PATH=$PATH:$HOME/.bin
+conda activate

@@ -59,25 +59,26 @@ source ~/.bashrc
 # install vim plugs
 vim  +VimEnter +PlugInstall +qall
 # install vim coc plugins 
-vim +"CocInstall coc-pyright" +"CocInstall coc-sh"
+vim +"CocInstall coc-pyright" +"CocInstall coc-sh" +"qa!"
+cd $homepath
 
 # install rclone 
-curl -O "http://downloads.rclone.org/rclone-current-linux-amd64.zip"
+wget "http://downloads.rclone.org/rclone-current-linux-amd64.zip"
 unzip "rclone-current-linux-amd64.zip"
-cd "rclone-*-linux-amd64"
+cd rclone-*-linux-amd64
 mkdir -p ~/sbin
 cp rclone ~/sbin/
 
 # cleanup 
 
 cd $homepath
-rm -rf ./node ./vim 
-find  . -maxdepth 1 -name "*.sh" -delete -o -name "*.gz" -delete
+rm -rf $homepath/node $homepath/vim 
+find  . -maxdepth 1 -name "*.sh" -delete -o -name "*.gz" -delete -o -name "*.zip" -delete
 
 # install conda envs
-cd miniconda3/bin
-./conda env create -f ./pytorchenv.yml
-./conda env create -f ./tf-gpu.yml
+cd $homepath/miniconda3/bin
+$homepath/miniconda3/bin/conda env create -f $homepath/dotfiles/pytorchenv.yml
+$homepath/miniconda3/bin/conda env create -f $homepath/dotfiles/tf-gpu.yml
 # ./conda init bash
 
 cd $homepath
