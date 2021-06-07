@@ -9,18 +9,20 @@ set -e
 # choose home dir - this is usually the datadrive - such as /data/callum
 read -p "Install base location: " homepath
 # # check user is happy
-# while true; do
-#     read -p "Do you wish to install vim, nodejs, and symlinks to $homepath? (y, n) " yn
-#     case $yn in
-#         [Yy]* ) echo "yes";; #make install; break;;
-#         [Nn]* ) exit;;
-#         * ) echo "Please answer yes or no.";;
-#     esac
-# done
+while true; do
+    read -p "Do you wish to install vim, nodejs, and symlinks to $homepath? (y, n) " yn
+    case $yn in
+        [Yy]* ) echo "yes"; break;; #make install; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 echo installing to $homepath
 # add first links - tmux and bashrc
 cd $homepath
 ln -sf $homepath/dotfiles/.bashrc ~/.bashrc
+ln -sf $homepath/dotfiles/.bash_profile ~/.bash_profile
+ln -sf $homepath/dotfiles/.vimrc ~/.vimrc
 ln -sf $homepath/dotfiles/.bin ~/.bin
 ln -sf $homepath/dotfiles/.tmux ~/.tmux
 ln -sf $homepath/dotfiles/.tmux.conf ~/.tmux.conf
