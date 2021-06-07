@@ -41,17 +41,16 @@ cd vim/src
 make && make install
 # add new vim path to .bash_profile 
 echo "export PATH=$homepath/vim_latest/bin:\$PATH" >> ~/.bash_profile
+
 # install newer nodejs
 echo "installing nodejs" 
 cd $homepath
 git clone "git@github.com:nodejs/node.git"
 cd node
-# wget https://nodejs.org/dist/v16.3.0/node-v16.3.0.tar.gz # https://nodejs.org/dist/v15.11.0/node-v15.11.0.tar.gz
-# tar -xvf node-v16.3.0.tar.gz
-# cd node-v16.3.0
 ./configure --prefix=$homepath/nodejs
 make && make install
 echo "export PATH=$homepath/nodejs/bin:\$PATH" >> ~/.bash_profile
+
 # # add vimrc symlinks 
 ln -sf $homepath/dotfiles/.vimrc ~/.vimrc
 source ~/.bash_profile 
@@ -60,9 +59,9 @@ source ~/.bashrc
 vim  +VimEnter +PlugInstall +qall
 # install vim coc plugins 
 vim +"CocInstall coc-pyright" +"CocInstall coc-sh" +"qa!"
-cd $homepath
 
 # install rclone 
+cd $homepath
 wget "http://downloads.rclone.org/rclone-current-linux-amd64.zip"
 unzip "rclone-current-linux-amd64.zip"
 cd rclone-*-linux-amd64
@@ -70,7 +69,6 @@ mkdir -p ~/sbin
 cp rclone ~/sbin/
 
 # cleanup 
-
 cd $homepath
 rm -rf $homepath/node $homepath/vim 
 find  . -maxdepth 1 -name "*.sh" -delete -o -name "*.gz" -delete -o -name "*.zip" -delete
