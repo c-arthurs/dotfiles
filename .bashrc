@@ -155,6 +155,7 @@ then
 fi
 if [[ $platform == 'osx' ]];
 then
+	. /Users/callum/miniconda3/etc/profile.d/conda.sh
 	alias cdh="cd ~/callum/"
 	alias core="conda deactivate && conda activate core"
 	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus" # remote jupyter server
