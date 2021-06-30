@@ -14,11 +14,17 @@ set showtabline=2
 " spelling limited so doesnt take up whole screen - call using z= 
 set spellsuggest+=10
 command Bang :call append(0, "#!/usr/bin/env bash")
+command PyBang :call append(0, "#!/usr/bin/env python")
 command Main :call append(line('$'), "if __name__ == \"__main__\":")
 command Marker :call append(line('.')-1, "### >>>>>>>>>>> ERROR HERE <<<<<<<<<<<< ###")
 
 nnoremap <leader>r :!%:p<Enter>
 " This just gueses the spelling of the word under cursor
+
+autocmd filetype python nnoremap <leader>r :!python %:p<Enter>
+
+
+
 nmap <Leader>z 1z=
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
