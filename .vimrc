@@ -7,6 +7,8 @@ set relativenumber
 set hlsearch
 set encoding=UTF-8
 set backspace=indent,eol,start
+" make a line at 80 charicters to show pep8 wralp size
+set colorcolumn=80
 " clear the last hlsearch with the spacebar 
 map <Space> :noh<cr>
 " makes sure the tab line is at top of page with filename
@@ -20,15 +22,11 @@ command Marker :call append(line('.')-1, "### >>>>>>>>>>> ERROR HERE <<<<<<<<<<<
 
 nnoremap <leader>r :!%:p<Enter>
 " This just gueses the spelling of the word under cursor
-
 autocmd filetype python nnoremap <leader>r :!python %:p<Enter>
-
-
-
 nmap <Leader>z 1z=
+
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
-
 " for auto making documentation strings for python functions
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 " this works by hitting leader \ then d when hovering over a function name
