@@ -20,6 +20,8 @@ command PyBang :call append(0, "#!/usr/bin/env python")
 command Main :call append(line('$'), "if __name__ == \"__main__\":")
 command Marker :call append(line('.')-1, "### >>>>>>>>>>> ERROR HERE <<<<<<<<<<<< ###")
 
+command Latex :%s/&/\\&/ge | %s/%/\\%/ge | %s/\$/\\$/ge | %s/κ/$\\kappa$/ge | %s/β/$\\upbeta$/ge | %s/α/$\\alpha$/ge | %s/μ/$\\upmu$/ge | %s/^\d\.\d\.\d\.\d\.\d\t/\\paragraph{/ge | %s/^\d\.\d\.\d\.\d\t/\\subsubsection{/ge | %s/^\d\.\d\.\d\t/\\subsection{/ge | %s/^\d\.\d\t/\\section{/ge | :execute 'g/ection{/:exe "norm A}"' | :execute 'g/agraph{/:exe "norm A}"' | :execute'g/^\\label/:-1j'
+
 nnoremap <leader>r :!%:p<Enter>
 " This just gueses the spelling of the word under cursor
 autocmd filetype python nnoremap <leader>r :!python %:p<Enter>
