@@ -130,8 +130,16 @@ then
 	alias core="conda deactivate && conda activate pytorchenv"
 	alias backup="rclone sync -P --skip-links --exclude .git/ --exclude miniconda3/ --delete-excluded /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
 	alias cdh="cd /data1/callum/"
+	alias cdb="cd /vol/bitbucket/carthurs/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 	alias notify="echo \"Action Finished\" | mail -s \"script finished on DUDLEY\" -- C.ARTHURS@IMPERIAL.AC.UK"
+	
+elif [[ $HOSTNAME  == "roc06.doc.ic.ac.uk" ]];
+then 
+	. /data/callum/CACONFIG/miniconda3/etc/profile.d/conda.sh
+	alias rclone="/vol/linux/apps/rclone/rclone"
+	alias core="conda deactivate && conda activate core"
+	alias cdh="cd /vol/bitbucket/carthurs/"
 
 
 elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" ]] || [[ $HOSTNAME  == "fleet.doc.ic.ac.uk" ]];
@@ -142,6 +150,7 @@ then
 	alias backupdata="rclone sync -P --skip-links --filter-from filter-list.txt /data/callum/DATA_Digi_Path box:/SERVER_BACKUPS/DATA_Digi_Path"
 	alias backuphome="rclone sync -P --skip-links --filter-from filter-list.txt /data/callum/ box:/SERVER_BACKUPS/SCRIPTS/"
 	alias cdh="cd /data/callum/"
+	alias cdb="cd /vol/bitbucket/carthurs/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 	alias notify="echo \"Action Finished\" | mail -s \"script finished on ARMADA\" -- C.ARTHURS@IMPERIAL.AC.UK"
 	alias backup="backupdata && backuphome && notify"
@@ -218,4 +227,4 @@ wait_for_pid () {
 }
 
 PATH=$PATH:$HOME/.bin
-conda activate
+# conda activate
