@@ -142,6 +142,8 @@ then
 	alias rclone="/vol/linux/apps/rclone/rclone"
 	alias core="conda deactivate && conda activate core"
 	alias cdh="cd /vol/bitbucket/carthurs/"
+	alias notify="echo \"Action Finished\" | mail -s \"script finished on ROC\" -- C.ARTHURS@IMPERIAL.AC.UK"
+	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 
 
 elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" ]] || [[ $HOSTNAME  == "fleet.doc.ic.ac.uk" ]];
