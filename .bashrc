@@ -182,6 +182,7 @@ alias tensorboard="tensorboard --logdir=runs --max_reload_threads 4"
 alias thumbnails="mkdir thumbnails; sips -Z 300 *.* --out thumbnails"
 alias deact="conda deactivate"
 alias darkjupyter="jt -t onedork -fs 95 -tfs 11 -nfs 115 -cellw 88% -T -N" # pip install --upgrade jupyterthemes 
+alias cdt="cd \"/Users/callum/OneDrive - King's College London/PhD/THESIS_LATEX_CURRENT/CHAPTERS\""
 
 # echo "██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗    ██╗  ██╗ █████╗ ██████╗ ██████╗ ███████╗██████╗ ";
 # echo "██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝    ██║  ██║██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗";
