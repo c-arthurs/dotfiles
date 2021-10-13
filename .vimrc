@@ -25,7 +25,7 @@ command Latex :%s/{ /{/ge | %s/ }/}/ge | %s/&/\\&/ge | %s/%/\\%/ge | %s/\$/\\$/g
 "
 "
 " can add a search for \. \\citep to replace it with citet
-command Bibtex :%s/\%u03B2/$\\upbeta$/ge | %s/\%u03B1/$\\alpha$/ge
+command Bibtex :%s/\%u03B2/$\\upbeta$/ge | %s/\%u03B1/$\\alpha$/ge | %s/&/\\&/ge
 
 nnoremap <leader>r :!%:p<Enter>
 " This just gueses the spelling of the word under cursor

@@ -171,12 +171,12 @@ then
 	. /Users/callum/miniconda3/etc/profile.d/conda.sh
 	alias cdh="cd ~/callum/"
 	alias core="conda deactivate && conda activate core"
-	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus" # remote jupyter server
-	alias kainzbookf="ssh -N -f -L localhost:8889:localhost:8889 kainzf" # remote jupyter server
-	alias kainzbooka="ssh -N -f -L localhost:8889:localhost:8889 kainza" # remote jupyter server
+	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus && open -a Safari http://localhost:8889" # remote jupyter server
+	alias kainzbookf="ssh -N -f -L localhost:8889:localhost:8889 kainzf && open -a Safari http://localhost:8889" # remote jupyter server
+	alias kainzbooka="ssh -N -f -L localhost:8889:localhost:8889 kainza && open -a Safari http://localhost:8889" # remote jupyter server
+	alias kainzbookr="ssh -N -f -L localhost:8889:localhost:8889 roc && open -a Safari http://localhost:8889" # remote jupyter server
 	alias notebook="jupyter notebook" # Jupyter 
 	alias motivate="echo \"FINISH THESIS - dont be lazy\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\"" 
-
 	alias killweb="echo \"FINISH THESIS FIRST, THEN REST\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\" && killall Safari && sudo vim /etc/hosts && sudo dscacheutil -flushcache"
 fi
 
