@@ -24,10 +24,12 @@ if __name__ == "__main__":
             help='what you want the dataset to be called on the lbox side')
     parser.add_argument('path', type=str, 
             help='The path to the file ending in a /')
+    parser.add_argument('apikeypath', type=str, 
+            help='The path to the labelbox api key')
 
     args = parser.parse_args()
     savedir = join(str(args.path), "low level export/")
     print(f"\n\tpath: {str(args.path)} \n\tsavepath: {savedir}\n")
     lbox_upload.upload_specific_file(dataset_name=str(args.dataset_name),
-            file_path=str(args.path))
+            file_path=str(args.path), apikeypath=str(args.apikeypath))
 
