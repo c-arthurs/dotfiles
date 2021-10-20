@@ -29,7 +29,7 @@ command Bibtex :%s/\%u03B2/$\\upbeta$/ge | %s/\%u03B1/$\\alpha$/ge | %s/&/\\&/ge
 
 nnoremap <leader>r :!%:p<Enter>
 " This just gueses the spelling of the word under cursor
-autocmd filetype python nnoremap <leader>r :!python %:p<Enter>
+autocmd filetype python nnoremap <leader>r :w <Enter> :!python %:p<Enter>
 nmap <Leader>z 1z=
 
 " Plugins will be downloaded under the specified directory.
