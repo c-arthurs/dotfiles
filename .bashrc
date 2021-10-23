@@ -197,6 +197,9 @@ alias deact="conda deactivate"
 alias darkjupyter="jt -t onedork -fs 95 -tfs 11 -nfs 115 -cellw 88% -T -N" # pip install --upgrade jupyterthemes 
 alias cdt="cd \"/Users/callum/OneDrive - King's College London/PhD/THESIS_LATEX_CURRENT/CHAPTERS\""
 
+## GIT
+alias remove_merged_branches="git branch -D `git branch --merged | grep -v \* | xargs`"
+
 # echo "██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗    ██╗  ██╗ █████╗ ██████╗ ██████╗ ███████╗██████╗ ";
 # echo "██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝    ██║  ██║██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗";
 # echo "██║ █╗ ██║██║   ██║██████╔╝█████╔╝     ███████║███████║██████╔╝██║  ██║█████╗  ██████╔╝";
