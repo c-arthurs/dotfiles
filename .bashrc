@@ -146,7 +146,7 @@ then
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 
 
-elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" ]] || [[ $HOSTNAME  == "fleet.doc.ic.ac.uk" ]];
+elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" ]] || [[ $HOSTNAME  == "fleet.doc.ic.ac.uk" ]] || [[ $HOSTNAME  == "covenant.doc.ic.ac.uk" ]] ;
 then 
 	. /data/callum/CACONFIG/miniconda3/etc/profile.d/conda.sh
 	alias core="conda deactivate && conda activate pytorchenv"
@@ -197,8 +197,8 @@ alias deact="conda deactivate"
 alias darkjupyter="jt -t onedork -fs 95 -tfs 11 -nfs 115 -cellw 88% -T -N" # pip install --upgrade jupyterthemes 
 alias cdt="cd \"/Users/callum/OneDrive - King's College London/PhD/THESIS_LATEX_CURRENT/CHAPTERS\""
 
-## GIT
-alias remove_merged_branches="git branch -D `git branch --merged | grep -v \* | xargs`"
+# GIT
+# alias remove_merged_branches="git branch -D `git branch --merged | grep -v \* | xargs`"
 
 # echo "██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗    ██╗  ██╗ █████╗ ██████╗ ██████╗ ███████╗██████╗ ";
 # echo "██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝    ██║  ██║██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗";
