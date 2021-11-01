@@ -126,27 +126,27 @@ if [[ $platform == 'linux' ]]; then
 	fi
 fi
 
-if [[ $HOSTNAME  == "dudley.doc.ic.ac.uk" ]];
-then 
-	. /data/callum/CACONFIG/miniconda3/etc/profile.d/conda.sh
-	alias core="conda deactivate && conda activate pytorchenv"
-	alias backup="rclone sync -P --skip-links --exclude .git/ --exclude miniconda3/ --delete-excluded /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
-	alias cdh="cd /data1/callum/"
-	alias cdb="cd /vol/bitbucket/carthurs/"
-	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
-	alias notify="echo \"Action Finished\" | mail -s \"script finished on DUDLEY\" -- C.ARTHURS@IMPERIAL.AC.UK"
+# if [[ $HOSTNAME  == "dudley.doc.ic.ac.uk" ]];
+# then 
+# 	. /data/callum/CACONFIG/miniconda3/etc/profile.d/conda.sh
+# 	alias core="conda deactivate && conda activate pytorchenv"
+# 	alias backup="rclone sync -P --skip-links --exclude .git/ --exclude miniconda3/ --delete-excluded /data1/callum/ box:/DUDLEY_SERVER_BACKUP/"
+# 	alias cdh="cd /data1/callum/"
+# 	alias cdb="cd /vol/bitbucket/carthurs/"
+# 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
+# 	alias notify="echo \"Action Finished\" | mail -s \"script finished on DUDLEY\" -- C.ARTHURS@IMPERIAL.AC.UK"
 	
-elif [[ $HOSTNAME  == "roc06.doc.ic.ac.uk" ]];
-then 
-	. /data/callum/CACONFIG/miniconda3/etc/profile.d/conda.sh
-	alias rclone="/vol/linux/apps/rclone/rclone"
-	alias core="conda deactivate && conda activate core"
-	alias cdh="cd /vol/bitbucket/carthurs/"
-	alias notify="echo \"Action Finished\" | mail -s \"script finished on ROC\" -- C.ARTHURS@IMPERIAL.AC.UK"
-	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
+# elif [[ $HOSTNAME  == "roc06.doc.ic.ac.uk" ]];
+# then 
+# 	. /data/callum/CACONFIG/miniconda3/etc/profile.d/conda.sh
+# 	alias rclone="/vol/linux/apps/rclone/rclone"
+# 	alias core="conda deactivate && conda activate core"
+# 	alias cdh="cd /vol/bitbucket/carthurs/"
+# 	alias notify="echo \"Action Finished\" | mail -s \"script finished on ROC\" -- C.ARTHURS@IMPERIAL.AC.UK"
+# 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
 
 
-elif [[ $HOSTNAME  == "armada.doc.ic.ac.uk" ]] || [[ $HOSTNAME  == "fleet.doc.ic.ac.uk" ]] || [[ $HOSTNAME  == "covenant.doc.ic.ac.uk" ]] ;
+if [[ $HOSTNAME  == *".doc.ic.ac.uk" ]];
 then 
 	. /data/callum/CACONFIG/miniconda3/etc/profile.d/conda.sh
 	alias core="conda deactivate && conda activate pytorchenv"
@@ -156,7 +156,7 @@ then
 	alias cdh="cd /data/callum/"
 	alias cdb="cd /vol/bitbucket/carthurs/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
-	alias notify="echo \"Action Finished\" | mail -s \"script finished on ARMADA\" -- C.ARTHURS@IMPERIAL.AC.UK"
+	alias notify="echo \"Action Finished\" | mail -s \"script finished on $HOSTNAME\" -- C.ARTHURS@IMPERIAL.AC.UK"
 	alias backup="backupdata && backuphome && notify"
 
 elif [[ $HOSTNAME  == "lynch-server1" ]];
