@@ -1,4 +1,9 @@
 .DS_Store
+*.ipynb
+*id_rsa*
+*known_hosts
+.tmux/plugins/
+goggins_work.mp3
 !/.gitignore
 *.hdf5
 APIKEY
