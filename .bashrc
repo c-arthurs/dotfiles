@@ -178,6 +178,7 @@ then
 	alias notebook="jupyter notebook" # Jupyter 
 	alias motivate="echo \"FINISH THESIS - dont be lazy\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\"" 
 	alias killweb="echo \"FINISH THESIS FIRST, THEN REST\" && afplay \"/Users/callum/callum/dotfiles/goggins_work.mp3\" && killall Safari && sudo vim /etc/hosts && sudo dscacheutil -flushcache"
+	alias notify="echo \"Action Finished\" && say \"done, done, done\""
 fi
 
 alias ll='ls -alFh'
@@ -227,7 +228,7 @@ wait_for_pid () {
 	check=$(ps --no-headers -p "$1" | wc -l)
 	while [[ $check -ne 0 ]]
 	do
-		sleep 6
+		sleep 1h
 		check=$(ps --no-headers -p "$1" | wc -l)
 	done
 	echo "previous finished, running script"
