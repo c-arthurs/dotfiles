@@ -187,7 +187,7 @@ alias l='ls -CF'
 alias lsd="ls -dh */"
 alias gh='history|grep' # get history
 alias count='find . -type f | wc -l' # count all files in current dir
-alias tmux="TERM=screen-256color-bce tmux new-session -A -s main" # added by callum to sort tmux
+alias t="TERM=screen-256color-bce tmux new-session -A -s main" # added by callum to sort tmux
 # alias open='xdg-open'
 alias smi="watch nvidia-smi"
 alias removedirs="rm -Rf -- */"
@@ -210,19 +210,19 @@ alias cdt="cd \"/Users/callum/OneDrive - King's College London/PhD/THESIS_LATEX_
 # echo "                                                                                       ";
 
 # Taskwarrior
-alias t='task'
-alias tsh='tasksh'
-alias tt='task next limit:10'
-alias ta='task add'
-alias tpr='task projects'
-alias tp_='task _projects'
-function tp() { task "proj:$1"; } 
-alias tdd='task +OVERDUE list' # Show all tasks that are overdue.
-alias tan='task add +next'
-alias tak='task add project:KCL'
-alias tat='task add project:KCL.Thesis'
-alias tah='task add project:Hammersmith'
-alias tag='task add project:GOSH'
+# alias t='task'
+# alias tsh='tasksh'
+# alias tt='task next limit:10'
+# alias ta='task add'
+# alias tpr='task projects'
+# alias tp_='task _projects'
+# function tp() { task "proj:$1"; } 
+# alias tdd='task +OVERDUE list' # Show all tasks that are overdue.
+# alias tan='task add +next'
+# alias tak='task add project:KCL'
+# alias tat='task add project:KCL.Thesis'
+# alias tah='task add project:Hammersmith'
+# alias tag='task add project:GOSH'
 
 wait_for_pid () {
 	check=$(ps --no-headers -p "$1" | wc -l)
