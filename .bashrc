@@ -186,7 +186,7 @@ alias l='ls -CF'
 alias lsd="ls -dh */"
 alias gh='history|grep' # get history
 alias count='find . -type f | wc -l' # count all files in current dir
-alias tmux="TERM=screen-256color-bce tmux" # added by callum to sort tmux
+alias tmux="TERM=screen-256color-bce tmux a || TERM=screen-256color-bce tmux" # added by callum to sort tmux
 # alias open='xdg-open'
 alias smi="watch nvidia-smi"
 alias removedirs="rm -Rf -- */"
