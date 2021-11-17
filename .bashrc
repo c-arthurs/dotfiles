@@ -168,7 +168,7 @@ then
 fi
 if [[ $platform == 'osx' ]];
 then
-	. /Users/callum/miniconda3/etc/profile.d/conda.sh
+	. /Users/callum/miniconda/etc/profile.d/conda.sh
 	alias cdh="cd ~/callum/"
 	alias core="conda deactivate && conda activate core"
 	alias magbook="ssh -N -f -L localhost:8889:localhost:8889 magnus && open -a Safari http://localhost:8889" # remote jupyter server
@@ -198,6 +198,7 @@ alias thumbnails="mkdir thumbnails; sips -Z 300 *.* --out thumbnails"
 alias deact="conda deactivate"
 alias darkjupyter="jt -t onedork -fs 95 -tfs 11 -nfs 115 -cellw 88% -T -N" # pip install --upgrade jupyterthemes 
 alias cdt="cd \"/Users/callum/OneDrive - King's College London/PhD/THESIS_LATEX_CURRENT/CHAPTERS\""
+alias pypath="export PYTHONPATH=\"$PWD"\"
 
 # GIT
 # alias remove_merged_branches="git branch -D `git branch --merged | grep -v \* | xargs`"
