@@ -235,5 +235,13 @@ wait_for_pid () {
 	notify
 }
 
+# check if tree exists on roc --- 
+# nosudo install instructions - https://askubuntu.com/questions/1322467/how-to-install-tree-on-ubuntu-without-sudo-right/1322472#1322472
+if ! command -v tree
+then 
+	alias tree="/data/callum/CACONFIG/tree/usr/bin/tree"
+fi
+
+
 PATH=$PATH:$HOME/.bin
 # conda activate
