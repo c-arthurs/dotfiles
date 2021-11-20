@@ -244,6 +244,10 @@ then
 	alias tree="/data/callum/CACONFIG/tree/usr/bin/tree"
 fi
 
+if ! command -v rclone
+then 
+	alias rclone="/vol/linux/apps/rclone/rclone"
+fi
 
 PATH=$PATH:$HOME/.bin
 # conda activate
