@@ -239,12 +239,12 @@ wait_for_pid () {
 
 # check if tree exists on roc --- 
 # nosudo install instructions - https://askubuntu.com/questions/1322467/how-to-install-tree-on-ubuntu-without-sudo-right/1322472#1322472
-if ! command -v tree
+if ! command -v tree &> /dev/null
 then 
 	alias tree="/data/callum/CACONFIG/tree/usr/bin/tree"
 fi
 
-if ! command -v rclone
+if ! command -v rclone &> /dev/null
 then 
 	alias rclone="/vol/linux/apps/rclone/rclone"
 fi
