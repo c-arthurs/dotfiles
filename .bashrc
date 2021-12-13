@@ -165,6 +165,13 @@ then
 	alias backup="rclone copy /hdd1/Callum/asini_deep/ProstSeg kclonedrive:/Lynch_server_backup/ProstSeg -P --filter-from /hdd1/Callum/dotfiles/filter-list.txt "
 	alias cdh="cd /hdd1/Callum/"
 	alias notebook="jupyter notebook --no-browser --port=8889" # remote jupyter server
+
+	f="$HOME/.nvm/nvm.sh"
+	if [ -r "$f" ]; then
+		  . "$f" &>'/dev/null'
+		    nvm use --lts &>'/dev/null'
+	fi
+
 fi
 if [[ $platform == 'osx' ]];
 then
@@ -251,3 +258,7 @@ fi
 
 PATH=$PATH:$HOME/.bin
 # conda activate
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
