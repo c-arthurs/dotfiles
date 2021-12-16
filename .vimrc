@@ -39,6 +39,8 @@ Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 " Declare the list of plugins.
 Plug 'morhetz/gruvbox'
 
+Plug 'bryanmylee/vim-colorscheme-icons'
+
 " for autocompletion 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
